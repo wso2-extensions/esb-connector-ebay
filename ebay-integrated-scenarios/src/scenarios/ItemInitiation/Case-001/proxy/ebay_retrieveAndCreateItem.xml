@@ -33,11 +33,9 @@
             <property name="ebayMessageId" expression="json-eval($.ebayMessageId)"/>
             <property name="ebayErrorLanguage" expression="json-eval($.ebayErrorLanguage)"/>
             <property name="ebayWarningLevel" expression="json-eval($.ebayWarningLevel)"/>
-
             <property name="productCount" expression="count(//items/data)" scope="operation"/>
             <property name="responseString" value="" scope="operation"/>
             <property name="productIndex" value="0" scope="operation"/>
-
 
             <!--FOR EACH Product : BEGIN-->
 
@@ -46,7 +44,6 @@
                 <target>
                     <sequence>
                         <property name="variantId" expression="//data/tradegeckoVariantId/text()"/>
-
                         <property name="ebayCategoryId"
                                   expression="//data/ebayProductDetails/categoryId/text()"/>
                         <property name="ebayConditionId"
@@ -89,20 +86,15 @@
                                   expression="//data/ebayProductDetails/site/text()"/>
                         <property name="ebayDispatchTimeMax"
                                   expression="//data/ebayProductDetails/dispatchTimeMax/text()"/>
-
                         <property name="id"
                                   expression="fn:concat('variant_id:',get-property('variantId'))"/>
                         <filter source="boolean(get-property('variantId'))" regex="false">
                             <then>
-
                                 <property name="status" value="Error"/>
                                 <property name="message"
                                           value="Please provide TreadeGecko Variant Id."/>
-
-
                             </then>
                             <else>
-
                                 <tradegecko.init>
                                     <apiUrl>{$ctx:tradegeckoApiUrl}</apiUrl>
                                     <accessToken>{$ctx:tradegeckoAccessToken}</accessToken>
@@ -114,7 +106,6 @@
 
                                 <!-- remove TreadeGecko Response Headers -->
                                 <sequence key="tradegecko-removeResponseHeaders"/>
-
                                 <property name="variantDetails" expression="json-eval($.variant)"/>
 
                                 <!-- if variant details are not available at TreadGecko -->
@@ -136,7 +127,6 @@
 
                                     </then>
                                     <else>
-
                                         <property name="tradegeckoProductId"
                                                   expression="json-eval($.variant.product_id)"/>
                                         <property name="ebayTitle"
@@ -158,8 +148,7 @@
 										optVal['opt3'] = jsonPayload.variant.opt3;
 										
 										mc.setProperty('optVal',optVal);
-											
-									]]>
+										]]>
                                         </script>
                                         <tradegecko.init>
                                             <apiUrl>{$ctx:tradegeckoApiUrl}</apiUrl>
@@ -223,7 +212,6 @@
                                                           expression="get-property('ebayPictureUrlBackup')"/>
                                             </else>
                                         </filter>
-
 
                                         <call-template target="ebay-addItemToeBay">
                                             <!-- parameter values will be passed on to a sequence template -->
@@ -331,10 +319,7 @@
 
                                             ) *
                                         </call-template>
-
-
                                     </else>
-
                                 </filter>
                             </else>
                         </filter>
@@ -347,7 +332,6 @@
                         <property name="productIndex"
                                   expression="get-property('operation','productIndex') + 1"
                                   scope="operation"/>
-
                     </sequence>
                 </target>
             </iterate>
@@ -361,7 +345,6 @@
         <outSequence>
             <property name="messageType" value="application/json" scope="axis2"/>
 
-
             <payloadFactory media-type="json">
                 <format>
                     {
@@ -372,11 +355,9 @@
                     }
                 </format>
                 <args>
-
                     <arg evaluator="xml" expression="get-property('operation', 'responseString')"/>
                 </args>
             </payloadFactory>
-
             <send/>
         </outSequence>
     </target>

@@ -101,10 +101,8 @@
             <property name="fbTags" expression="json-eval($.fbTags)"/>
             <property name="fbPrivacy" expression="json-eval($.fbPrivacy)"/>
             <property name="fbObjectAttachment" expression="json-eval($.fbObjectAttachment)"/>
-
             <property name="responseString" value="" scope="operation"/>
             <property name="idParam" value=""/>
-
             <property name="FORCE_ERROR_ON_SOAP_FAULT" value="true"/>
 
             <!-- Check whether promotional sale item ids are provided from the request -->

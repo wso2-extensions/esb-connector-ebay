@@ -73,11 +73,8 @@
 
         <filter source="boolean(get-property('uri.var.authToken'))" regex="false">
             <then>
-
                 <property name="status" value="Skipped"/>
                 <property name="message" value="Please provide Ebay AUTH Token."/>
-
-
             </then>
             <else>
 
@@ -155,19 +152,15 @@
 
                 <filter source="boolean(get-property('ebayItemId'))" regex="false">
                     <then>
-
                         <property name="status" value="Error"/>
                         <property name="message" expression="json-eval($.Envelope.Body.)"/>
-
                     </then>
                     <else>
-
                         <property name="status" value="Success"/>
                         <property name="message"
                                   expression="fn:concat('Classified Ad created successfully in Ebay with the Classified Ad Id ',get-property('ebayItemId'),'.')"/>
                     </else>
                 </filter>
-
             </else>
         </filter>
     </sequence>

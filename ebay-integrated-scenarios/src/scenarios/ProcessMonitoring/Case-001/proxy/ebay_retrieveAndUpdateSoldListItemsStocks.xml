@@ -32,7 +32,6 @@
             <!-- Mapping list of the Tradegecko product variants with eBay item Ids. -->
             <property name="itemsMap" expression="json-eval($.itemsMap)"/>
 
-
             <script language="js">
                 var currentDate=new Date();
                 var currentday=""+currentDate.getDate();
@@ -102,13 +101,11 @@
             <property name="subscribers" value="" scope="operation"/>
             <property name="transactionIds" value="" scope="operation"/>
 
-
             <filter xpath="get-property('operation','buyersCount' ) = 0">
                 <then>
                     <property name="id" value=""/>
                     <property name="status" value="Skipped"/>
                     <property name="message" value="No transaction(s) found."/>
-
                     <call-template target="responseHandlerTemplate">
                         <with-param name="activity" value="campaignMonitor_addSubscribersToList"/>
                         <with-param name="id" value="{$ctx:id}"/>
@@ -134,12 +131,9 @@
                                           expression="//ebl:Transaction[1]/ebl:Buyer/ebl:Email/text()"
                                           xmlns:ebl="urn:ebay:apis:eBLBaseComponents"
                                           scope="operation"/>
-
-
                                 <property name="transactionCount"
                                           expression="get-property('operation','transactionCount') + count(//ebl:Transaction)"
                                           scope="operation"/>
-
                                 <iterate continueParent="true" id="transactions"
                                          expression="//ebl:Transaction" sequential="true"
                                          xmlns:ebl="urn:ebay:apis:eBLBaseComponents">
@@ -232,12 +226,10 @@
 
                     <filter xpath="get-property('operation','transactionCount') = get-property('operation','transactionIndex')">
                         <then>
-
                             <property name="subscribers"
                                       expression="fn:substring(get-property('operation','subscribers'), 1, fn:string-length(get-property('operation','subscribers'))-1)"/>
                             <property name="id"
                                       expression="fn:substring(get-property('operation','transactionIds'), 1, fn:string-length(get-property('operation','transactionIds'))-1)"/>
-
                             <property name="id"
                                       expression="fn:concat('{transaction_ids:[',get-property('id'),']}')"/>
 
@@ -253,10 +245,8 @@
                             </payloadFactory>
 
                             <property name="cmSubscribers" expression="json-eval($.subscribers)"/>
-
                             <filter source="boolean(get-property('subscribers'))" regex="true">
                                 <then>
-
                                     <property name="messageType" value="application/json"
                                               scope="axis2"/>
                                     <!-- Call Campaign Monitor addSubscriberToList method to import buyers contact information -->
@@ -273,7 +263,6 @@
                                         <restartSubscriptionBasedAutoresponders>true
                                         </restartSubscriptionBasedAutoresponders>
                                     </campaignmonitor.addSubscribersToList>
-
 
                                     <property name="totalUniqueEmailsSubmitted"
                                               expression="json-eval($.TotalUniqueEmailsSubmitted)"/>
