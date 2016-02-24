@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="ebay" transports="https,http"
+       statistics="disable" trace="disable"
+       startOnLoad="true">
+    <target>
+        <inSequence>
+            <property name="method" expression="//ns:method/text()"/>
+            <property name="apiUrl" expression="//ns:apiUrl/text()"/>
+            <property name="appId" expression="//ns:appId/text()"/>
+            <property name="routing"
+                      expression="//ns:routing/text()"/>
+            <property name="authToken"
+                      expression="//ns:authToken/text()"/>
+            <property name="siteId" expression="//ns:siteId/text()"/>
+            <property name="warningLevel"
+                      expression="//ns:warningLevel/text()"/>
+            <property name="messageId"
+                      expression="//ns:messageId/text()"/>
+            <property name="errorLanguage"
+                      expression="//ns:errorLanguage/text()"/>
+            <property name="version"
+                      expression="//ns:version/text()"/>
+            <property name="activeList"
+                      expression="//ns:activeList/*"/>
+            <property name="bidList" expression="//ns:bidList/*"/>
+            <property name="deletedFromSoldList"
+                      expression="//ns:deletedFromSoldList/*"/>
+            <property name="deletedFromUnsoldList"
+                      expression="//ns:deletedFromUnsoldList/*"/>
+            <property name="hideVariations"
+                      expression="//ns:hideVariations/text()"/>
+            <property name="scheduledList"
+                      expression="//ns:scheduledList/*"/>
+            <property name="sellingSummary"
+                      expression="//ns:sellingSummary/*"/>
+            <property name="soldList" expression="//ns:soldList/*"/>
+            <property name="unsoldList"
+                      expression="//ns:unsoldList/*"/>
+            <property name="outputSelector"
+                      expression="//ns:outputSelector/text()"/>
+            <property name="item" expression="//ns:item/*"/>
+            <property name="detailLevel"
+                      expression="//ns:detailLevel/text()"/>
+            <property name="action" expression="//ns:action/text()"/>
+            <property name="promotionalSaleDetails"
+                      expression="//ns:promotionalSaleDetails/*"/>
+            <property name="destinationParentCategoryID"
+                      expression="//ns:destinationParentCategoryID/text()"/>
+            <property name="itemDestinationCategoryID"
+                      expression="//ns:itemDestinationCategoryID/text()"/>
+            <property name="storeCategories"
+                      expression="//ns:storeCategories/*"/>
+            <property name="endCreationTime"
+                      expression="//ns:endCreationTime/text()"/>
+            <property name="includeMemberMessages"
+                      expression="//ns:includeMemberMessages/text()"/>
+            <property name="status" expression="//ns:status/text()"/>
+            <property name="itemId" expression="//ns:itemId/text()"/>
+            <property name="startCreationTime"
+                      expression="//ns:startCreationTime/text()"/>
+            <property name="categoryStructureOnly"
+                      expression="//ns:categoryStructureOnly/text()"/>
+            <property name="userId" expression="//ns:userId/text()"/>
+            <property name="rootCategoryId"
+                      expression="//ns:rootCategoryId/text()"/>
+            <property name="levelLimit"
+                      expression="//ns:levelLimit/text()"/>
+            <property name="includeSelector"
+                      expression="//ns:includeSelector/text()"/>
+            <property name="hideDuplicateItems"
+                      expression="//ns:hideDuplicateItems/text()"/>
+            <property name="productSort"
+                      expression="//ns:productSort/text()"/>
+            <property name="availableItemsOnly"
+                      expression="//ns:availableItemsOnly/text()"/>
+            <property name="sortOrder"
+                      expression="//ns:sortOrder/text()"/>
+            <property name="categoryId"
+                      expression="//ns:categoryId/text()"/>
+            <property name="pageNumber"
+                      expression="//ns:pageNumber/text()"/>
+            <property name="domainName"
+                      expression="//ns:domainName/text()"/>
+            <property name="queryKeywords"
+                      expression="//ns:queryKeywords/text()"/>
+            <property name="maxEntries"
+                      expression="//ns:maxEntries/text()"/>
+            <property name="productType"
+                      expression="//ns:productType/text()"/>
+            <property name="productId"
+                      expression="//ns:productId/text()"/>
+            <property name="allAuctionItems"
+                      expression="//ns:allAuctionItems/text()"/>
+            <property name="allFixedPriceItems"
+                      expression="//ns:allFixedPriceItems/text()"/>
+            <property name="allStoreInventoryItems"
+                      expression="//ns:allStoreInventoryItems/text()"/>
+            <property name="categoryID"
+                      expression="//ns:categoryID/text()"/>
+            <property name="promotionalSaleID"
+                      expression="//ns:promotionalSaleID/text()"/>
+            <property name="promotionalSaleItemIDArray"
+                      expression="//ns:promotionalSaleItemIDArray/*"/>
+            <property name="storeCategoryID"
+                      expression="//ns:storeCategoryID/text()"/>
+            <property name="itemId" expression="//ns:itemId/text()"/>
+            <property name="includeItemCompatibilityList"
+                      expression="//ns:includeItemCompatibilityList/text()"/>
+            <property name="includeItemSpecifics"
+                      expression="//ns:includeItemSpecifics/text()"/>
+            <property name="includeTaxTable"
+                      expression="//ns:includeTaxTable/text()"/>
+            <property name="includeWatchCount"
+                      expression="//ns:includeWatchCount/text()"/>
+            <property name="sku" expression="//ns:sku/text()"/>
+            <property name="transactionID"
+                      expression="//ns:transactionID/text()"/>
+            <property name="variationSKU"
+                      expression="//ns:variationSKU/text()"/>
+            <property name="variationSpecifics"
+                      expression="//ns:variationSpecifics/*"/>
+
+            <filter xpath="get-property('isShoppingApi') = 'true'">
+                <then>
+                    <ebay.init-shopping>
+                        <appId>{$ctx:appId}</appId>
+                        <siteId>{$ctx:siteId}</siteId>
+                        <apiUrl>{$ctx:apiUrl}</apiUrl>
+                        <messageId>{$ctx:messageId}</messageId>
+                        <version>{$ctx:version}</version>
+                    </ebay.init-shopping>
+                </then>
+                <else>
+                    <ebay.init-trading>
+                        <apiUrl>{$ctx:apiUrl}</apiUrl>
+                        <appId>{$ctx:appId}</appId>
+                        <routing>{$ctx:routing}</routing>
+                        <authToken>{$ctx:authToken}</authToken>
+                        <siteId>{$ctx:siteId}</siteId>
+                        <warningLevel>{$ctx:warningLevel}</warningLevel>
+                        <messageId>{$ctx:messageId}</messageId>
+                        <errorLanguage>{$ctx:errorLanguage}</errorLanguage>
+                        <version>{$ctx:version}</version>
+                    </ebay.init-trading>
+                </else>
+            </filter>
+
+            <switch source="get-property('method')">
+                <case regex="addItem">
+                    <ebay.addItem>
+                        <item>{$ctx:item}</item>
+                        <detailLevel>{$ctx:detailLevel}</detailLevel>
+                    </ebay.addItem>
+                </case>
+                <case regex="getItem">
+                    <ebay.getItem>
+                        <itemId>{$ctx:itemId}</itemId>
+                        <detailLevel>{$ctx:detailLevel}</detailLevel>
+                        <includeItemCompatibilityList>{$ctx:includeItemCompatibilityList}
+                        </includeItemCompatibilityList>
+                        <includeItemSpecifics>{$ctx:includeItemSpecifics}</includeItemSpecifics>
+                        <includeTaxTable>{$ctx:includeTaxTable}</includeTaxTable>
+                        <includeWatchCount>{$ctx:includeWatchCount}</includeWatchCount>
+                        <sku>{$ctx:sku}</sku>
+                        <transactionID>{$ctx:transactionID}</transactionID>
+                        <variationSKU>{$ctx:variationSKU}</variationSKU>
+                        <variationSpecifics>{$ctx:variationSpecifics}</variationSpecifics>
+                    </ebay.getItem>
+                </case>
+                <case regex="getMyeBaySelling">
+                    <ebay.getMyeBaySelling>
+                        <activeList>{$ctx:activeList}</activeList>
+                        <detailLevel>{$ctx:detailLevel}</detailLevel>
+                        <scheduledList>{$ctx:scheduledList}</scheduledList>
+                        <sellingSummary>{$ctx:sellingSummary}</sellingSummary>
+                        <hideVariations>{$ctx:hideVariations}</hideVariations>
+                        <bidList>{$ctx:bidList}</bidList>
+                        <outputSelector>{$ctx:outputSelector}</outputSelector>
+                        <deletedFromSoldList>{$ctx:deletedFromSoldList}</deletedFromSoldList>
+                        <deletedFromUnsoldList>{$ctx:deletedFromUnsoldList}</deletedFromUnsoldList>
+                        <soldList>{$ctx:soldList}</soldList>
+                        <unsoldList>{$ctx:unsoldList}</unsoldList>
+                    </ebay.getMyeBaySelling>
+                </case>
+                <case regex="setPromotionalSale">
+                    <ebay.setPromotionalSale>
+                        <action>{$ctx:action}</action>
+                        <promotionalSaleDetails>{$ctx:promotionalSaleDetails}
+                        </promotionalSaleDetails>
+                    </ebay.setPromotionalSale>
+                </case>
+                <case regex="setPromotionalSaleListings">
+                    <ebay.setPromotionalSaleListings>
+                        <action>{$ctx:action}</action>
+                        <allAuctionItems>{$ctx:allAuctionItems}</allAuctionItems>
+                        <allFixedPriceItems>{$ctx:allFixedPriceItems}</allFixedPriceItems>
+                        <allStoreInventoryItems>{$ctx:allStoreInventoryItems}
+                        </allStoreInventoryItems>
+                        <categoryID>{$ctx:categoryID}</categoryID>
+                        <promotionalSaleID>{$ctx:promotionalSaleID}</promotionalSaleID>
+                        <promotionalSaleItemIDArray>{$ctx:promotionalSaleItemIDArray}
+                        </promotionalSaleItemIDArray>
+                        <storeCategoryID>{$ctx:storeCategoryID}</storeCategoryID>
+                    </ebay.setPromotionalSaleListings>
+                </case>
+                <case regex="setStoreCategories">
+                    <ebay.setStoreCategories>
+                        <action>{$ctx:action}</action>
+                        <destinationParentCategoryID>{$ctx:destinationParentCategoryID}
+                        </destinationParentCategoryID>
+                        <itemDestinationCategoryID>{$ctx:itemDestinationCategoryID}
+                        </itemDestinationCategoryID>
+                        <storeCategories>{$ctx:storeCategories}</storeCategories>
+                    </ebay.setStoreCategories>
+                </case>
+                <case regex="getAdFortmatLeads">
+                    <ebay.getAdFortmatLeads>
+                        <endCreationTime>{$ctx:endCreationTime}</endCreationTime>
+                        <includeMemberMessages>{$ctx:includeMemberMessages}</includeMemberMessages>
+                        <outputSelector>{$ctx:outputSelector}</outputSelector>
+                        <status>{$ctx:status}</status>
+                        <detailLevel>{$ctx:detailLevel}</detailLevel>
+                        <itemId>{$ctx:itemId}</itemId>
+                        <startCreationTime>{$ctx:startCreationTime}</startCreationTime>
+                    </ebay.getAdFortmatLeads>
+                </case>
+                <case regex="getStore">
+                    <ebay.getStore>
+                        <categoryStructureOnly>{$ctx:categoryStructureOnly}</categoryStructureOnly>
+                        <userId>{$ctx:userId}</userId>
+                        <rootCategoryId>{$ctx:rootCategoryId}</rootCategoryId>
+                        <levelLimit>{$ctx:levelLimit}</levelLimit>
+                    </ebay.getStore>
+                </case>
+                <case regex="findProducts">
+                    <ebay.findProducts>
+                        <includeSelector>{$ctx:includeSelector}</includeSelector>
+                        <hideDuplicateItems>{$ctx:hideDuplicateItems}</hideDuplicateItems>
+                        <productSort>{$ctx:productSort}</productSort>
+                        <availableItemsOnly>{$ctx:availableItemsOnly}</availableItemsOnly>
+                        <sortOrder>{$ctx:sortOrder}</sortOrder>
+                        <categoryId>{$ctx:categoryId}</categoryId>
+                        <pageNumber>{$ctx:pageNumber}</pageNumber>
+                        <domainName>{$ctx:domainName}</domainName>
+                        <queryKeywords>{$ctx:queryKeywords}</queryKeywords>
+                        <maxEntries>{$ctx:maxEntries}</maxEntries>
+                        <productType>{$ctx:productType}</productType>
+                        <productId>{$ctx:productId}</productId>
+                    </ebay.findProducts>
+                </case>
+            </switch>
+            <respond/>
+        </inSequence>
+        <outSequence>
+            <log></log>
+            <send></send>
+        </outSequence>
+    </target>
+</proxy>
