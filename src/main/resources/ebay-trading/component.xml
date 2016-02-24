@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+<component name="ebay-trading" type="synapse/template">
+    <subComponents>
+        <component name="getStore">
+            <file>getStore.xml</file>
+            <description>Used to list the existing custom categories.</description>
+        </component>
+        <component name="setStoreCategories">
+            <file>setStoreCategories.xml</file>
+            <description>Used to change the category configuration of a user&apos;s eBay store
+            </description>
+        </component>
+        <component name="addItem">
+            <file>addItem.xml</file>
+            <description>Creates and publishes a new item and lists it on an eBay site.
+            </description>
+        </component>
+        <component name="getAdFortmatLeads">
+            <file>getAdFortmatLeads.xml</file>
+            <description>Retrieve sales-lead information for a lead-generation listing.
+            </description>
+        </component>
+        <component name="setPromotionalSale">
+            <file>setPromotionalSale.xml</file>
+            <description>Create or modify a promotional sale.</description>
+        </component>
+        <component name="setPromotionalSaleListings">
+            <file>setPromotionalSaleListings.xml</file>
+            <description>Changes which item listings are affected by a promotional sale.
+            </description>
+        </component>
+        <component name="getMyeBaySelling">
+            <file>getMyeBaySelling.xml</file>
+            <description>Retrieve information from the All Selling section of the authenticated user&apos;s
+                My eBay account.
+            </description>
+        </component>
+        <component name="getItem">
+            <file>getItem.xml</file>
+            <description>Retrieve Information related to an item in the store.</description>
+        </component>
+    </subComponents>
+</component>
