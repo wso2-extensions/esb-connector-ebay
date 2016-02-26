@@ -137,7 +137,8 @@
     <scm>
         <connection>scm:git:https://github.com/wso2-extensions/esb-connector-ebay.git</connection>
         <url>https://github.com/wso2-extensions/esb-connector-ebay.git</url>
-        <developerConnection>scm:git:https://github.com/wso2-extensions/esb-connector-ebay
+        <developerConnection>
+            scm:git:https://github.com/wso2-extensions/esb-connector-ebay
         </developerConnection>
         <tag>HEAD</tag>
     </scm>
