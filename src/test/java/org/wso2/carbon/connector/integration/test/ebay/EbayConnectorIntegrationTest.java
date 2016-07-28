@@ -50,7 +50,7 @@ public class EbayConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
 
-        init("ebay-connector-1.0.1");
+        init("ebay-connector-1.0.2-SNAPSHOT");
 
         esbRequestHeadersMap.put("Accept-Charset", "UTF-8");
         nameSpaceMap.put("soapenv", "http://schemas.xmlsoap.org/soap/envelope/");
