@@ -14,8 +14,7 @@
                 <ebl:PromotionalSaleName>Promotional Name</ebl:PromotionalSaleName>
                 <ebl:DiscountType>Percentage</ebl:DiscountType>
                 <ebl:DiscountValue>10</ebl:DiscountValue>
-                <ebl:PromotionalSaleStartTime>%s(PromotionalSaleStartTime)
-                </ebl:PromotionalSaleStartTime>
+                <ebl:PromotionalSaleStartTime>%s(PromotionalSaleStartTime)</ebl:PromotionalSaleStartTime>
                 <ebl:PromotionalSaleEndTime>%s(PromotionalSaleEndTime)</ebl:PromotionalSaleEndTime>
                 <ebl:PromotionalSaleType>PriceDiscountOnly</ebl:PromotionalSaleType>
             </ebl:PromotionalSaleDetails>

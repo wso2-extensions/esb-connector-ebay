@@ -9,9 +9,8 @@ Pre-requisites:
 
 Tested Platform: 
 
- - Microsoft WINDOWS V-7
- - UBUNTU 14.04
- - WSO2 ESB 4.9.0
+ - Mac OSx 10.9
+ - WSO2 ESB 5.0.0-SNAPSHOT
 
  Note:
 	This test suite can be executed based on two scenarios.
@@ -21,13 +20,11 @@ Tested Platform:
 		
 Steps to follow in setting integration test.
 
- 1. Download ESB 4.9.0 from official website.
- 
- 2. Deploy relevant patches, if applicable.
- 
- 3. Compress modified ESB as wso2esb-4.9.0.zip and copy that zip file in to location "{Ebay_Connector_Home}/repository/".
+ 1. Download ESB 5.0.0-SNAPSHOT from official website. Extract the ESB and put "-XX:-UseSplitVerifier" under $JVM_MEM_OPTS into {ESB_HOME}/bin/wso2server.sh.
 
- 4. Prerequisites for eBay Connector Integration Testing.
+ 2. Copy that ESB zip file in to location "{Ebay_Connector_Home}/repository/".
+
+ 3. Prerequisites for eBay Connector Integration Testing.
 
 	i) 	 Create an eBay developer account using the URL "https://developer.ebay.com/join/".
 	ii)	 Get the DevID, AppID and CertID from the eBay Developer Account Home using the URL "https://developer.ebay.com/DevZone/account"
@@ -39,9 +36,9 @@ Steps to follow in setting integration test.
  5. Update the eBay properties file at location "{Ebay_Connector_Home}/src/test/resources/artifacts/ESB/connector/config" as below.
 	
 	i)		authToken 						- Generate an ebay auth token with developer DevID, AppID and CertID by using the URL "https://developer.ebay.com/DevZone/account/tokens/default.aspx".	
-	ii) 	siteId							- Place the site Id that used to create a ebay store (step 4[vi]). 
-	iii)	version							- Place the eBay API Compatibility level version (step 4[vi]). 
-	iv)		appId							- Place the eBay developer account application Id (step 4[ii]).
+	ii) 	siteId							- Place the site Id that used to create a ebay store (step 3[vi]).
+	iii)	version							- Place the eBay API Compatibility level version (step 3[vi]).
+	iv)		appId							- Place the eBay developer account application Id (step 3[ii]).
 	v)		tradingApiUrl					- Place the eBay trading api URL.
 	vi)		shoppingApiUrl					- Place the eBay shopping api URL.
 	vii)	routing							- Specify the routing as default.
@@ -50,7 +47,7 @@ Steps to follow in setting integration test.
 	x)		addItemTitle					- Title for the create item with mandatory parameters.
 	xi)		addItemTitleOptional 			- Title for the create item with optional parameters.
 	xii)	addItemTitlePromotionalListing 	- Title for the create item to list as promotional sale listing with optional parameters.
-	xiii)	paypalEmailAddress				- eBay sandbox account linked paypal sandbox test account email address (step 4[v]). 
+	xiii)	paypalEmailAddress				- eBay sandbox account linked paypal sandbox test account email address (step 3[v]).
 	xiv)	userId							- eBay sanbox account Id (e.g.: testuser_username).
 	xv)		addItemTitleForSalesListing 	- Title for secondary item in Promotional Sales Listings.
 

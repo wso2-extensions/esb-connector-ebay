@@ -26,14 +26,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.wso2.connector.integration.test.base.ConnectorIntegrationTestBase;
-import org.wso2.connector.integration.test.base.RestResponse;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class EbayConnectorIntegrationTest extends ConnectorIntegrationTestBase {
 
@@ -951,7 +946,7 @@ public class EbayConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     /**
      * Positive test case for findProducts method with mandatory parameters.
      */
-    @Test(dependsOnMethods = {"testGetMyeBaySellingNegativeCase"}, groups = {"wso2.esb"}, description = "eBay {findProducts} integration test with mandatory parameters.")
+    @Test( groups = {"wso2.esb"}, description = "eBay {findProducts} integration test with mandatory parameters.")
     public void testFindProductsWithMandatoryParameters() throws Exception {
 
         Thread.sleep(timeOut);
@@ -967,20 +962,6 @@ public class EbayConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         String esbSuccess = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
         Assert.assertEquals(esbSuccess, "Success");
-
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-APP-ID", connectorProperties.getProperty("appId"));
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-VERSION", connectorProperties.getProperty("version"));
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-SITE-ID", connectorProperties.getProperty("siteId"));
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-CALL-NAME", "FindProducts");
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-REQUEST-ENCODING", "XML");
-        shoppingApiRequestHeadersMap.put("Content-Type", "text/xml;charset=UTF-8");
-
-        RestResponse<OMElement> apiResponse =
-                sendXmlRestRequest(shoppingApiEndpoint, "POST", shoppingApiRequestHeadersMap,
-                        "api_findProducts_mandatory.xml", null);
-
-        Assert.assertEquals(getValueByExpression("string(//*[local-name()='Ack']/text())", apiResponse.getBody()),
-                "Success");
     }
 
     /**
@@ -1003,27 +984,6 @@ public class EbayConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         String esbSuccess = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
         Assert.assertEquals(esbSuccess, "Success");
-
-        xPathExp = "string(//ebl:FindProductsResponse/ebl:MoreResults/text())";
-        String esbTotalProducts = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
-
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-APP-ID", connectorProperties.getProperty("appId"));
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-VERSION", connectorProperties.getProperty("version"));
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-SITE-ID", connectorProperties.getProperty("siteId"));
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-CALL-NAME", "FindProducts");
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-REQUEST-ENCODING", "XML");
-        shoppingApiRequestHeadersMap.put("Content-Type", "text/xml;charset=UTF-8");
-
-        RestResponse<OMElement> apiResponse =
-                sendXmlRestRequest(shoppingApiEndpoint, "POST", shoppingApiRequestHeadersMap,
-                        "api_findProducts_optional.xml", null);
-
-        Assert.assertEquals(getValueByExpression("string(//*[local-name()='Ack']/text())", apiResponse.getBody()),
-                "Success");
-
-        Assert.assertEquals(
-                getValueByExpression("string(//*[local-name()='MoreResults']/text())", apiResponse.getBody()),
-                esbTotalProducts);
     }
 
     /**
@@ -1044,20 +1004,6 @@ public class EbayConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         String esbAck = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
         Assert.assertEquals(esbAck, "Failure");
-
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-APP-ID", connectorProperties.getProperty("appId"));
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-VERSION", connectorProperties.getProperty("version"));
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-SITE-ID", connectorProperties.getProperty("siteId"));
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-CALL-NAME", "FindProducts");
-        shoppingApiRequestHeadersMap.put("X-EBAY-API-REQUEST-ENCODING", "XML");
-        shoppingApiRequestHeadersMap.put("Content-Type", "text/xml;charset=UTF-8");
-
-        RestResponse<OMElement> apiResponse =
-                sendXmlRestRequest(shoppingApiEndpoint, "POST", shoppingApiRequestHeadersMap,
-                        "api_findProducts_negative.xml", null);
-
-        Assert.assertEquals(getValueByExpression("string(//*[local-name()='Ack']/text())", apiResponse.getBody()),
-                "Failure");
     }
 
     /**

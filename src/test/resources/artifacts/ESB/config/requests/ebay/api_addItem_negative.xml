@@ -10,10 +10,7 @@
         <ebl:AddItemRequest>
             <ebl:Item>
                 <ebl:Title>%s(addItemTitle)</ebl:Title>
-                <ebl:Description>The timeless classic by Martin Wickramasinghe.
-                    Brand
-                    new.
-                </ebl:Description>
+                <ebl:Description>The timeless classic by Martin Wickramasinghe. Brand new.</ebl:Description>
                 <ebl:PrimaryCategory>
                     <ebl:CategoryID>377</ebl:CategoryID>
                 </ebl:PrimaryCategory>
@@ -25,12 +22,9 @@
                 <ebl:ListingDuration>Days_7</ebl:ListingDuration>
                 <ebl:ListingType>Chinese</ebl:ListingType>
                 <ebl:PaymentMethods>PayPal</ebl:PaymentMethods>
-                <ebl:PayPalEmailAddress>%s(paypalEmailAddress)
-                </ebl:PayPalEmailAddress>
+                <ebl:PayPalEmailAddress>%s(paypalEmailAddress)</ebl:PayPalEmailAddress>
                 <ebl:PictureDetails>
-                    <ebl:PictureURL>
-                        http://i1.sandbox.ebayimg.com/03/i/00/6b/63/03_1.JPG?set_id=8800005007
-                    </ebl:PictureURL>
+                    <ebl:PictureURL>http://i1.sandbox.ebayimg.com/03/i/00/6b/63/03_1.JPG?set_id=8800005007</ebl:PictureURL>
                 </ebl:PictureDetails>
                 <ebl:PostalCode>95125</ebl:PostalCode>
                 <ebl:Quantity>1</ebl:Quantity>

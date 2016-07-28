@@ -22,121 +22,188 @@
        startOnLoad="true">
     <target>
         <inSequence>
-            <property name="method" expression="//ns:method/text()"/>
-            <property name="apiUrl" expression="//ns:apiUrl/text()"/>
-            <property name="appId" expression="//ns:appId/text()"/>
+            <property name="method" expression="//urn:method/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <log level="custom">
+                <property name="21121221212112221122121212121212112" expression="get-property('method')"/>
+            </log>
+            <property name="apiUrl" expression="//urn:apiUrl/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <property name="appId" expression="//urn:appId/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="routing"
-                      expression="//ns:routing/text()"/>
+                      expression="//urn:routing/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="authToken"
-                      expression="//ns:authToken/text()"/>
-            <property name="siteId" expression="//ns:siteId/text()"/>
+                      expression="//urn:authToken/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <property name="siteId" expression="//urn:siteId/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="warningLevel"
-                      expression="//ns:warningLevel/text()"/>
+                      expression="//urn:warningLevel/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="messageId"
-                      expression="//ns:messageId/text()"/>
+                      expression="//urn:messageId/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="errorLanguage"
-                      expression="//ns:errorLanguage/text()"/>
+                      expression="//urn:errorLanguage/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="version"
-                      expression="//ns:version/text()"/>
+                      expression="//urn:version/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="activeList"
-                      expression="//ns:activeList/*"/>
-            <property name="bidList" expression="//ns:bidList/*"/>
+                      expression="//urn:activeList/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <property name="bidList" expression="//urn:bidList/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="deletedFromSoldList"
-                      expression="//ns:deletedFromSoldList/*"/>
+                      expression="//urn:deletedFromSoldList/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="deletedFromUnsoldList"
-                      expression="//ns:deletedFromUnsoldList/*"/>
+                      expression="//urn:deletedFromUnsoldList/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="hideVariations"
-                      expression="//ns:hideVariations/text()"/>
+                      expression="//urn:hideVariations/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="scheduledList"
-                      expression="//ns:scheduledList/*"/>
+                      expression="//urn:scheduledList/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="sellingSummary"
-                      expression="//ns:sellingSummary/*"/>
-            <property name="soldList" expression="//ns:soldList/*"/>
+                      expression="//urn:sellingSummary/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <property name="soldList" expression="//urn:soldList/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="unsoldList"
-                      expression="//ns:unsoldList/*"/>
+                      expression="//urn:unsoldList/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="outputSelector"
-                      expression="//ns:outputSelector/text()"/>
-            <property name="item" expression="//ns:item/*"/>
+                      expression="//urn:outputSelector/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <property name="item" expression="//urn:item/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="detailLevel"
-                      expression="//ns:detailLevel/text()"/>
-            <property name="action" expression="//ns:action/text()"/>
+                      expression="//urn:detailLevel/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <property name="action" expression="//urn:action/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="promotionalSaleDetails"
-                      expression="//ns:promotionalSaleDetails/*"/>
+                      expression="//urn:promotionalSaleDetails/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="destinationParentCategoryID"
-                      expression="//ns:destinationParentCategoryID/text()"/>
+                      expression="//urn:destinationParentCategoryID/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="itemDestinationCategoryID"
-                      expression="//ns:itemDestinationCategoryID/text()"/>
+                      expression="//urn:itemDestinationCategoryID/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="storeCategories"
-                      expression="//ns:storeCategories/*"/>
+                      expression="//urn:storeCategories/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="endCreationTime"
-                      expression="//ns:endCreationTime/text()"/>
+                      expression="//urn:endCreationTime/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="includeMemberMessages"
-                      expression="//ns:includeMemberMessages/text()"/>
-            <property name="status" expression="//ns:status/text()"/>
-            <property name="itemId" expression="//ns:itemId/text()"/>
+                      expression="//urn:includeMemberMessages/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <property name="status" expression="//urn:status/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <property name="itemId" expression="//urn:itemId/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="startCreationTime"
-                      expression="//ns:startCreationTime/text()"/>
+                      expression="//urn:startCreationTime/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="categoryStructureOnly"
-                      expression="//ns:categoryStructureOnly/text()"/>
-            <property name="userId" expression="//ns:userId/text()"/>
+                      expression="//urn:categoryStructureOnly/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <property name="userId" expression="//urn:userId/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="rootCategoryId"
-                      expression="//ns:rootCategoryId/text()"/>
+                      expression="//urn:rootCategoryId/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="levelLimit"
-                      expression="//ns:levelLimit/text()"/>
+                      expression="//urn:levelLimit/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="includeSelector"
-                      expression="//ns:includeSelector/text()"/>
+                      expression="//urn:includeSelector/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="hideDuplicateItems"
-                      expression="//ns:hideDuplicateItems/text()"/>
+                      expression="//urn:hideDuplicateItems/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="productSort"
-                      expression="//ns:productSort/text()"/>
+                      expression="//urn:productSort/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="availableItemsOnly"
-                      expression="//ns:availableItemsOnly/text()"/>
+                      expression="//urn:availableItemsOnly/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="sortOrder"
-                      expression="//ns:sortOrder/text()"/>
+                      expression="//urn:sortOrder/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="categoryId"
-                      expression="//ns:categoryId/text()"/>
+                      expression="//urn:categoryId/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="pageNumber"
-                      expression="//ns:pageNumber/text()"/>
+                      expression="//urn:pageNumber/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="domainName"
-                      expression="//ns:domainName/text()"/>
+                      expression="//urn:domainName/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="queryKeywords"
-                      expression="//ns:queryKeywords/text()"/>
+                      expression="//urn:queryKeywords/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="maxEntries"
-                      expression="//ns:maxEntries/text()"/>
+                      expression="//urn:maxEntries/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="productType"
-                      expression="//ns:productType/text()"/>
+                      expression="//urn:productType/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="productId"
-                      expression="//ns:productId/text()"/>
+                      expression="//urn:productId/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="allAuctionItems"
-                      expression="//ns:allAuctionItems/text()"/>
+                      expression="//urn:allAuctionItems/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="allFixedPriceItems"
-                      expression="//ns:allFixedPriceItems/text()"/>
+                      expression="//urn:allFixedPriceItems/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="allStoreInventoryItems"
-                      expression="//ns:allStoreInventoryItems/text()"/>
+                      expression="//urn:allStoreInventoryItems/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="categoryID"
-                      expression="//ns:categoryID/text()"/>
+                      expression="//urn:categoryID/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="promotionalSaleID"
-                      expression="//ns:promotionalSaleID/text()"/>
+                      expression="//urn:promotionalSaleID/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="promotionalSaleItemIDArray"
-                      expression="//ns:promotionalSaleItemIDArray/*"/>
+                      expression="//urn:promotionalSaleItemIDArray/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="storeCategoryID"
-                      expression="//ns:storeCategoryID/text()"/>
-            <property name="itemId" expression="//ns:itemId/text()"/>
+                      expression="//urn:storeCategoryID/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <property name="itemId" expression="//urn:itemId/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="includeItemCompatibilityList"
-                      expression="//ns:includeItemCompatibilityList/text()"/>
+                      expression="//urn:includeItemCompatibilityList/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="includeItemSpecifics"
-                      expression="//ns:includeItemSpecifics/text()"/>
+                      expression="//urn:includeItemSpecifics/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="includeTaxTable"
-                      expression="//ns:includeTaxTable/text()"/>
+                      expression="//urn:includeTaxTable/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="includeWatchCount"
-                      expression="//ns:includeWatchCount/text()"/>
-            <property name="sku" expression="//ns:sku/text()"/>
+                      expression="//urn:includeWatchCount/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
+            <property name="sku" expression="//urn:sku/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="transactionID"
-                      expression="//ns:transactionID/text()"/>
+                      expression="//urn:transactionID/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="variationSKU"
-                      expression="//ns:variationSKU/text()"/>
+                      expression="//urn:variationSKU/text()" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
             <property name="variationSpecifics"
-                      expression="//ns:variationSpecifics/*"/>
+                      expression="//urn:variationSpecifics/*" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                      xmlns:urn="wso2.connector.ebay"/>
 
             <filter xpath="get-property('isShoppingApi') = 'true'">
                 <then>
@@ -174,8 +241,7 @@
                     <ebay.getItem>
                         <itemId>{$ctx:itemId}</itemId>
                         <detailLevel>{$ctx:detailLevel}</detailLevel>
-                        <includeItemCompatibilityList>{$ctx:includeItemCompatibilityList}
-                        </includeItemCompatibilityList>
+                        <includeItemCompatibilityList>{$ctx:includeItemCompatibilityList}</includeItemCompatibilityList>
                         <includeItemSpecifics>{$ctx:includeItemSpecifics}</includeItemSpecifics>
                         <includeTaxTable>{$ctx:includeTaxTable}</includeTaxTable>
                         <includeWatchCount>{$ctx:includeWatchCount}</includeWatchCount>
@@ -203,8 +269,7 @@
                 <case regex="setPromotionalSale">
                     <ebay.setPromotionalSale>
                         <action>{$ctx:action}</action>
-                        <promotionalSaleDetails>{$ctx:promotionalSaleDetails}
-                        </promotionalSaleDetails>
+                        <promotionalSaleDetails>{$ctx:promotionalSaleDetails}</promotionalSaleDetails>
                     </ebay.setPromotionalSale>
                 </case>
                 <case regex="setPromotionalSaleListings">
@@ -212,22 +277,18 @@
                         <action>{$ctx:action}</action>
                         <allAuctionItems>{$ctx:allAuctionItems}</allAuctionItems>
                         <allFixedPriceItems>{$ctx:allFixedPriceItems}</allFixedPriceItems>
-                        <allStoreInventoryItems>{$ctx:allStoreInventoryItems}
-                        </allStoreInventoryItems>
+                        <allStoreInventoryItems>{$ctx:allStoreInventoryItems}</allStoreInventoryItems>
                         <categoryID>{$ctx:categoryID}</categoryID>
                         <promotionalSaleID>{$ctx:promotionalSaleID}</promotionalSaleID>
-                        <promotionalSaleItemIDArray>{$ctx:promotionalSaleItemIDArray}
-                        </promotionalSaleItemIDArray>
+                        <promotionalSaleItemIDArray>{$ctx:promotionalSaleItemIDArray}</promotionalSaleItemIDArray>
                         <storeCategoryID>{$ctx:storeCategoryID}</storeCategoryID>
                     </ebay.setPromotionalSaleListings>
                 </case>
                 <case regex="setStoreCategories">
                     <ebay.setStoreCategories>
                         <action>{$ctx:action}</action>
-                        <destinationParentCategoryID>{$ctx:destinationParentCategoryID}
-                        </destinationParentCategoryID>
-                        <itemDestinationCategoryID>{$ctx:itemDestinationCategoryID}
-                        </itemDestinationCategoryID>
+                        <destinationParentCategoryID>{$ctx:destinationParentCategoryID}</destinationParentCategoryID>
+                        <itemDestinationCategoryID>{$ctx:itemDestinationCategoryID}</itemDestinationCategoryID>
                         <storeCategories>{$ctx:storeCategories}</storeCategories>
                     </ebay.setStoreCategories>
                 </case>
