@@ -4,7 +4,7 @@
     "category": "E-commerce",
     "documentationUrl": "https://docs.wso2.com/display/ESBCONNECTORS/eBay+Connector",
     "description": "The eBay connector allows you to access the eBay Shopping SOAP API and the eBay Trading SOAP API through WSO2 ESB. eBay is an online auction service used to buy and sell items. The company uses an electronic platform to facilitate millions of transactions every day. Users seeking to purchase items make bids over a specific time period, and then the seller determines guidelines such as a minimum bid the seller is willing to accept. ",
-    "status": "Unsupported",
+    "status": "Active",
     "labels": [
         "connector"
     ],
